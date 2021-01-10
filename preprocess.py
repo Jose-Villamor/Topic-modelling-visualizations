@@ -9,9 +9,10 @@ from gensim.corpora import Dictionary
 
 #Common steps
 def preprocess_text(document, norm=None):
-        lemmatizer = WordNetLemmatizer()
-        stemmer = PorterStemmer()
+        nltk.download('wordnet') 
         nltk.download('stopwords')
+        lemmatizer = WordNetLemmatizer()
+        stemmer = PorterStemmer()        
         en_stop = set(nltk.corpus.stopwords.words('english'))
     
         document = re.sub(r'\W', ' ', str(document))
